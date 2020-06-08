@@ -1,6 +1,6 @@
 class PriceListsController < ApplicationController
-    #Remove comment below to test end point without authentication
-    # skip_before_action :require_login
+    # Remove comment below to test end point without authentication
+    skip_before_action :require_login
 
     def index
         price_lists = PriceList.all
