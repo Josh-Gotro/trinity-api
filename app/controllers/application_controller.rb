@@ -22,9 +22,6 @@ class ApplicationController < ActionController::API
 
     def session_user
         decoded_hash = decoded_token
-        puts "=========================================="
-        puts decoded_token
-        puts "=========================================="
         if !decoded_hash.empty? 
             puts decoded_hash.class
             user_id = decoded_hash[0]['user_id']
