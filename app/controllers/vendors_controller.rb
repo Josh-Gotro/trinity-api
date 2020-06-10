@@ -1,6 +1,6 @@
 class VendorsController < ApplicationController
     # Remove comment below to test end point without authentication
-    # skip_before_action :require_login
+    skip_before_action :require_login
 
     def index
         vendors = Vendor.all
@@ -37,11 +37,6 @@ class VendorsController < ApplicationController
 private
 
     def vendor_params
-        params.require(:vendor).permit(:name)
+        params.require(:vendor).permit(:user_id, :name, :description, :rep, :contact)
     end
-end
-
-
-def show
- 
 end
