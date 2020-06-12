@@ -7,7 +7,6 @@ class ItemDetailsController < ApplicationController
         item_details = ItemDetail.all
             render json: item_details.to_json(:include => {
                 :item => {:only => [:id, :name]}
-                # :item_details => {:only => [:id, :pack_size, :price, :item_id]},
             }, except: [:created_at, :updated_at]) 
     end
 

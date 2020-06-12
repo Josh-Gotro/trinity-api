@@ -23,6 +23,10 @@ class VendorsController < ApplicationController
     def create 
         vendor = Vendor.create(vendor_params)
         render json: vendor
+        # if vendor.valid?
+        #     render json: vendor
+        # else
+        #             render json: {errors: vendor.errors.full_messages}
     end
 
     def update

@@ -28,6 +28,7 @@ class PriceListsController < ApplicationController
 
     def create 
         price_list = PriceList.create(pricelist_params)
+
         render json: price_list
     end
 
@@ -45,4 +46,5 @@ private
     def pricelist_params
         params.require(:price_list).permit(:user_id, :vendor_id, :date)
     end
+
 end
