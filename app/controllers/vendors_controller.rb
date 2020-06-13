@@ -5,7 +5,7 @@ class VendorsController < ApplicationController
     def index
         vendors = Vendor.all
         render json: vendors.to_json(:include => {
-            :price_lists => {:only => [:id, :user_id, :date]}
+            :price_lists => {:only => [:id,:vendor_id, :user_id, :date]}
             }, except: [:created_at, :updated_at]) 
     end
 
@@ -13,7 +13,7 @@ class VendorsController < ApplicationController
         vendor = Vendor.find_by({id: params[:id]}) 
         if vendor
             render json: vendor.to_json(:include => {
-                :price_lists => {:only => [:id, :user_id, :date]}
+                :price_lists => {:only => [:id, :vendor_id, :user_id, :date]}
             }, except: [:created_at, :updated_at])       
         else
             render json: {message: "sorry friend, no info here"}
