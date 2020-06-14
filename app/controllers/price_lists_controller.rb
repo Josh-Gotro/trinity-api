@@ -1,13 +1,13 @@
 class PriceListsController < ApplicationController
     # Remove comment below to test end point without authentication
-    # skip_before_action :require_login
+    skip_before_action :require_login
 
     def index
         price_lists = PriceList.all
             render json: price_lists.to_json(:include => {
                 :user => {:only => [:id, :username]},
                 :items => {:only => [:id, :name]},
-                :item_details => {:only => [:id, :pack_size, :price, :item_id]},
+                :item_details => {:only => [:id, :pack_size, :price, :item_id, :item_name]},
                 :vendor => {:only => [:id, :name]}
             }, except: [:created_at, :updated_at]) 
     end
@@ -18,7 +18,7 @@ class PriceListsController < ApplicationController
             render json: price_list.to_json(:include => {
                 :user => {:only => [:id, :username]},
                 :items => {:only => [:id, :name]},
-                :item_details => {:only => [:id, :pack_size, :price, :item_id]},
+                :item_details => {:only => [:id, :pack_size, :price, :item_id, :item_name]},
                 :vendor => {:only => [:id, :name]}
             }, except: [:created_at, :updated_at])    
         else

@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_06_10_191526) do
   create_table "item_details", force: :cascade do |t|
     t.bigint "price_list_id", null: false
     t.bigint "item_id", null: false
+    t.string "item_name"
     t.string "pack_size"
     t.float "price"
     t.datetime "created_at", precision: 6, null: false

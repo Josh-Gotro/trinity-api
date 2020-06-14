@@ -3,6 +3,7 @@ class CreateItemDetails < ActiveRecord::Migration[6.0]
     create_table :item_details do |t|
       t.references :price_list, null: false, foreign_key: true
       t.references :item, null: false, foreign_key: true
+      t.string :item_name
       t.string :pack_size
       t.float :price
 

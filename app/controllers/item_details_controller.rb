@@ -1,6 +1,6 @@
 class ItemDetailsController < ApplicationController
     # Remove comment below to test end point without authentication
-    # skip_before_action :require_login
+    skip_before_action :require_login
   
 
     def index
@@ -16,7 +16,7 @@ class ItemDetailsController < ApplicationController
             render json: item_detail.to_json(:include => {
                 :user => {:only => [:id, :username]},
                 :items => {:only => [:id, :name]},
-                :item_details => {:only => [:id, :pack_size, :price, :item_id]},
+                :item_details => {:only => [:id, :pack_size, :price, :item_id, :item_name]},
                 :vendor => {:only => [:id, :name]}
             }, except: [:created_at, :updated_at])    
         else
@@ -41,7 +41,7 @@ class ItemDetailsController < ApplicationController
 private
 
     def item_detail_params
-        params.require(:item_detail).permit(:price_list_id, :item_id, :pack_size, :price)
+        params.require(:item_detail).permit(:price_list_id, :item_id, :pack_size, :price, :item_name)
     end
 
     
