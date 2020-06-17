@@ -37,8 +37,12 @@ class PriceListsController < ApplicationController
     end
 
     def destroy
-        price_list = PriceList.find_by({id: params[:id]}) 
+        price_list = PriceList.find_by(id: params[:id]) 
+        puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        puts price_list.id
+        puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
         price_list.destroy
+        render json: price_list
     end
 
 private
