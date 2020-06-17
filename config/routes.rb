@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :item_details
+  resources :items
   resources :price_lists
   resources :vendors
   resource :users, only: [:create]

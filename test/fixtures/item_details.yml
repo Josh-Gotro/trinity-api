@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price_list: one
+  item: one
+  pack_size: MyString
+  price: 9.99
+
+two:
+  price_list: two
+  item: two
+  pack_size: MyString
+  price: 9.99
