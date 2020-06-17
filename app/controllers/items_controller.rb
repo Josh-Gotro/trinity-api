@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
     # Remove comment below to test end point without authentication
-    skip_before_action :require_login
+    # skip_before_action :require_login
 
 
     def index
